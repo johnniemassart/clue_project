@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+
 const Input = () => {
   const [username, setUsername] = useState("");
   const [characters, setCharacters] = useState();
@@ -23,7 +24,6 @@ const Input = () => {
       setUsername("");
     }
   };
-
   return (
     <>
       <div className="input_wrapper">

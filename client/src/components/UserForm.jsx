@@ -2,8 +2,11 @@ import React from "react";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { userDetails } from "../redux/userSlice";
 
 const UserForm = () => {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState("");
   const navigate = useNavigate();
   const [characters, setCharacters] = useState("");
@@ -19,19 +22,8 @@ const UserForm = () => {
   const [characterChoice, setCharacterChoice] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    try {
-      const url = "http://127.0.0.1:8000/usercharacters/";
-      await axios.post(url, {
-        username: username,
-        character: characterChoice,
-      });
-      navigate("/welcome");
-    } catch (error) {
-      console.error(error);
-    } finally {
-      setUsername("");
-      setCharacterChoice("");
-    }
+    dispatch(userDetails({ username: username, character: characterChoice }));
+    navigate("/welcome");
   };
   return (
     <form className="input_form" onSubmit={handleSubmit}>
