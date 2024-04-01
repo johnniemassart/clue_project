@@ -4,10 +4,12 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { userDetails } from "../redux/userSlice";
+import "../css/SignUpForm.css";
 
-const UserForm = () => {
+const SignUpForm = () => {
   const dispatch = useDispatch();
   const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const navigate = useNavigate();
   const [characters, setCharacters] = useState("");
   useEffect(() => {
@@ -22,7 +24,13 @@ const UserForm = () => {
   const [characterChoice, setCharacterChoice] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    dispatch(userDetails({ username: username, character: characterChoice }));
+    dispatch(
+      userDetails({
+        username: username,
+        password: password,
+        character: characterChoice,
+      })
+    );
     navigate("/welcome");
   };
   return (
@@ -35,6 +43,15 @@ const UserForm = () => {
           setUsername(e.target.value);
         }}
         value={username}
+      />
+      <label>Enter Password:</label>
+      <input
+        type="password"
+        name="password"
+        onChange={(e) => {
+          setPassword(e.target.value);
+        }}
+        value={password}
       />
       <div>Select a Character:</div>
       <select
@@ -59,4 +76,4 @@ const UserForm = () => {
   );
 };
 
-export default UserForm;
+export default SignUpForm;

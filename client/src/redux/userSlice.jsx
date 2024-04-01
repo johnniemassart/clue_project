@@ -4,10 +4,7 @@ import axios from "axios";
 export const userDetails = createAsyncThunk(
   "user/postDetails",
   async (user) => {
-    const response = await axios.post(
-      "http://127.0.0.1:8000/usercharacters/",
-      user
-    );
+    const response = await axios.post("http://127.0.0.1:8000/users/", user);
     return response.data;
   }
 );
@@ -15,7 +12,7 @@ export const userDetails = createAsyncThunk(
 export const userSlice = createSlice({
   name: "user",
   initialState: {
-    userInfo: { username: "", character: "" },
+    userInfo: { username: "", password: "", character: "" },
     pending: null,
     error: false,
   },

@@ -1,11 +1,15 @@
 import React from "react";
 import "../css/Home.css";
-import HomeWrapper from "../components/HomeWrapper";
+import FormWrapper from "../components/FormWrapper";
+import LogInSignUp from "../components/LogInSignUp";
 
 const Home = () => {
   return (
-    <div className="home_wrapper">
-      <HomeWrapper />
+    <div className="wrapper">
+      <FormWrapper>
+        <h2 className="home_welcome">Welcome to Clue-Less</h2>
+        <LogInSignUp />
+      </FormWrapper>
     </div>
   );
 };
