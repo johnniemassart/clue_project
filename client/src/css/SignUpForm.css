@@ -22,7 +22,7 @@ input {
 
 input:focus {
   outline: none;
-  text-align: center;
+  /* text-align: center; */
 }
 
 button {

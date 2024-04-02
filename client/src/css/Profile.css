@@ -1,0 +1,7 @@
+.profile_wrapper {
+  width: 100vw;
+  height: 100vh;
+  color-scheme: light dark;
+  background-color: #242424;
+  /* border: 2px solid orange; */
+}
