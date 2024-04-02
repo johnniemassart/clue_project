@@ -33,14 +33,18 @@ const LogInForm = () => {
         setUser({
           username: jwtDecode(loginData.access).username,
           character: jwtDecode(loginData.access).character,
-          access: loginData.access,
+          refresh: loginData["refresh"],
+          access: loginData["access"],
         })
       );
       setUsername("");
       setPassword("");
       console.log("log in success");
       //   console.log(loginData);
-      console.log(jwtDecode(loginData.access));
+      console.log(loginData["refresh"]);
+      console.log(loginData["access"]);
+      //   console.log(jwtDecode(loginData.refresh));
+      //   console.log(jwtDecode(loginData.access));
       console.log("username: " + jwtDecode(loginData.access).username);
       console.log("character: " + jwtDecode(loginData.access).character);
       navigate("/profile");
